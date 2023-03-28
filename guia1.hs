@@ -18,7 +18,7 @@ promedio x y = (x + y) / 2
 entre0y9 :: Int -> Bool
 entre0y9 x | (0 <= x) && (x <= 9) = True
            | otherwise = False
-           
+
 
 -- nuevo tipo de datos, ej de clase
 g :: (Int, Float) -> (Int,Float) -> (Int, Int, Float)
@@ -70,9 +70,9 @@ ordena (a,b) = (min a b, max a b)
 
 --c)
 rangoPrecioParametrizado :: Float -> (Float, Float) -> String
-rangoPrecioParametrizado x (a,b) | x > (max a b)  = "demasiado caro"
-                                 | (x <= (max a b)) && (x >= (min a b)) = "hay que verlo bien"
-                                 | (x >= 0) && (x < (min a b)) = "muy barato"
+rangoPrecioParametrizado x (a,b) | x > max a b  = "demasiado caro"
+                                 | (x <= max a b) && (x >= min a b) = "hay que verlo bien"
+                                 | (x >= 0) && (x < min a b) = "muy barato"
                                  | x < 0 = "esto no puede ser"
 
 
