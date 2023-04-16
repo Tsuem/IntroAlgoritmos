@@ -123,3 +123,51 @@ concatenar :: [a] -> [a] -> [a]
 concatenar (x:xs) [] = x:xs
 concatenar [] (y:ys) = y:ys
 concatenar (x:xs) (y:ys) = x : y : concatenar xs ys
+
+
+-- EJERCICIO 9
+--a)
+maximo :: [Int] -> Int
+maximo [] = minBound
+maximo [x] = x
+maximo (x:xs) | x >= maximo xs = x
+              | x < maximo xs = maximo xs
+
+-- b)
+sumaPares :: [(Int, Int)] -> Int
+sumaPares [] = 0
+sumaPares ((x, y):xs) = x + y + sumaPares xs
+
+-- c)
+todos0y1 :: [Int] -> Bool
+todos0y1 [] = True
+todos0y1 (x:xs) | x == 0 || x==1 = todos0y1 xs
+                | otherwise = False
+
+-- d)
+quitar0s :: [Int] -> [Int]
+
+quitar0s [] = []
+quitar0s (x:xs) | x == 0 = quitar0s xs
+                | x /= 0 = x : quitar0s xs
+
+-- e)
+ultimo :: [a] -> a
+ultimo [x] = x
+ultimo (x:xs) = ultimo xs 
+
+-- f)
+repetir :: Int-> Int-> [Int]
+repetir 0 b = []
+repetir a b | a > 0 = b : repetir (a - 1) b
+            | a < 0 = []
+
+-- g)
+concat' :: [[a]] -> [a]
+concat' [] = []
+concat' (x:xs) = x ++ concat' xs
+
+-- h)
+rev :: [a] -> [a]
+rev [] = []
+rev (x:xs) = rev xs ++ [x]
